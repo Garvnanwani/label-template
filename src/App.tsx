@@ -102,21 +102,22 @@ Ph: +91-8860115323`
 
   return (
     <div className="App">
+      <h2>DesignerHub Labels</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="address1">Address 1:</label>
         <textarea
           id="address1"
           value={addresses[0]}
-          rows={12}
-          cols={20}
+          rows={14}
+          cols={25}
           onChange={(event) => handleAddressChange(event, 0)}
         />
         <label htmlFor="address1">From:</label>
         <textarea
           id="from1"
           value={from[0]}
-          rows={7}
-          cols={20}
+          rows={9}
+          cols={22}
           onChange={(event) => handleFromChange(event, 0)}
         />
         <br />
@@ -124,16 +125,16 @@ Ph: +91-8860115323`
         <textarea
           id="address2"
           value={addresses[1]}
-          rows={12}
-          cols={20}
+          rows={14}
+          cols={25}
           onChange={(event) => handleAddressChange(event, 1)}
         />
         <label htmlFor="from">From:</label>
         <textarea
           id="from2"
           value={from[1]}
-          rows={7}
-          cols={20}
+          rows={9}
+          cols={22}
           onChange={(event) => handleFromChange(event, 1)}
         />
         <br />
@@ -141,16 +142,16 @@ Ph: +91-8860115323`
         <textarea
           id="address3"
           value={addresses[2]}
-          rows={12}
-          cols={20}
+          rows={14}
+          cols={25}
           onChange={(event) => handleAddressChange(event, 2)}
         />
         <label htmlFor="from">From:</label>
         <textarea
           id="from3"
           value={from[2]}
-          rows={7}
-          cols={20}
+          rows={9}
+          cols={22}
           onChange={(event) => handleFromChange(event, 2)}
         />
         <br />
@@ -158,19 +159,20 @@ Ph: +91-8860115323`
         <textarea
           id="address4"
           value={addresses[3]}
-          rows={12}
-          cols={20}
+          rows={14}
+          cols={25}
           onChange={(event) => handleAddressChange(event, 3)}
         />
         <label htmlFor="from">From:</label>
         <textarea
           id="from4"
           value={from[3]}
-          rows={7}
-          cols={20}
+          rows={9}
+          cols={22}
           onChange={(event) => handleFromChange(event, 3)}
         />
         <br />
+        <br/>
         <button type="submit">Download Image</button>
       </form>
     </div>
