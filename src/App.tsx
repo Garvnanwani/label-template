@@ -4,10 +4,22 @@ import './App.css';
 function App() {
   const [addresses, setAddresses] = useState(['', '', '', '']);
 
+  const initialFrom = `From,
+Rashmi Designer Hub
+Ph: +91-8860115323`
+
+  const [from, setFrom] = useState([initialFrom, initialFrom, initialFrom, initialFrom]);
+
   const handleAddressChange = (event, index) => {
     const newAddresses = [...addresses];
     newAddresses[index] = event.target.value;
     setAddresses(newAddresses);
+  };
+
+  const handleFromChange = (event, index) => {
+    const newFrom = [...from];
+    newFrom[index] = event.target.value;
+    setFrom(newFrom);
   };
 
   const handleSubmit = async (event) => {
@@ -29,9 +41,9 @@ function App() {
       const lines3 = addresses[2].split(/\r?\n/);
       const lines4 = addresses[3].split(/\r?\n/);
       const lineSpacing = 40;
-      const margin = 92;
+      let margin = 92;
       let y = 150;
-      const margin2 = 915;
+      let margin2 = 915;
       for (let i = 0; i < lines1.length; i++) {
         context.fillText(lines1[i], margin, y);
         y += lineSpacing;
@@ -51,6 +63,35 @@ function App() {
         context.fillText(lines4[i], canvas.width - margin2, y);
         y += lineSpacing;
       }
+
+      const froms1 = from[0].split(/\r?\n/);
+      const froms2 = from[1].split(/\r?\n/);
+      const froms3 = from[2].split(/\r?\n/);
+      const froms4 = from[3].split(/\r?\n/);
+
+      margin = 625;
+      y = 300;
+      margin2 = 375;
+      for (let i = 0; i < froms1.length; i++) {
+        context.fillText(froms1[i], margin, y);
+        y += lineSpacing;
+      }
+      y = 300;
+      for (let i = 0; i < froms2.length; i++) {
+        context.fillText(froms2[i], canvas.width - margin2, y);
+        y += lineSpacing;
+      }
+      y = 800;
+      for (let i = 0; i < froms3.length; i++) {
+        context.fillText(froms3[i], margin, y);
+        y += lineSpacing;
+      }
+      y = 800;
+      for (let i = 0; i < froms4.length; i++) {
+        context.fillText(froms4[i], canvas.width - margin2, y);
+        y += lineSpacing;
+      }
+
       const downloadLink = document.createElement('a');
       downloadLink.download = 'labels.png';
       downloadLink.href = canvas.toDataURL();
@@ -70,14 +111,30 @@ function App() {
           cols={20}
           onChange={(event) => handleAddressChange(event, 0)}
         />
+        <label htmlFor="address1">From:</label>
+        <textarea
+          id="from1"
+          value={from[0]}
+          rows={7}
+          cols={20}
+          onChange={(event) => handleFromChange(event, 0)}
+        />
         <br />
-        <label htmlFor="address2">Address 2:</label>
+        <label htmlFor="from">Address 2:</label>
         <textarea
           id="address2"
           value={addresses[1]}
           rows={12}
           cols={20}
           onChange={(event) => handleAddressChange(event, 1)}
+        />
+        <label htmlFor="from">From:</label>
+        <textarea
+          id="from2"
+          value={from[1]}
+          rows={7}
+          cols={20}
+          onChange={(event) => handleFromChange(event, 1)}
         />
         <br />
         <label htmlFor="address3">Address 3:</label>
@@ -88,6 +145,14 @@ function App() {
           cols={20}
           onChange={(event) => handleAddressChange(event, 2)}
         />
+        <label htmlFor="from">From:</label>
+        <textarea
+          id="from3"
+          value={from[2]}
+          rows={7}
+          cols={20}
+          onChange={(event) => handleFromChange(event, 2)}
+        />
         <br />
         <label htmlFor="address4">Address 4:</label>
         <textarea
@@ -96,6 +161,14 @@ function App() {
           rows={12}
           cols={20}
           onChange={(event) => handleAddressChange(event, 3)}
+        />
+        <label htmlFor="from">From:</label>
+        <textarea
+          id="from4"
+          value={from[3]}
+          rows={7}
+          cols={20}
+          onChange={(event) => handleFromChange(event, 3)}
         />
         <br />
         <button type="submit">Download Image</button>
